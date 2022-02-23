@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :attack do
-    name { "MyText" }
+    name { "Griffe" }
   end
 end
