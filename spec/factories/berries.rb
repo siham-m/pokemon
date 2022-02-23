@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :berry do
-    name { "MyText" }
+    name { "Razz Berry" }
   end
 end
