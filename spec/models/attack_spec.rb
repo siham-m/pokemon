@@ -18,4 +18,14 @@ RSpec.describe Attack, type: :model do
       FactoryBot.create(:attack)
     end.to raise_error(ActiveRecord::RecordInvalid)
   end
+  it 'has an accuracy' do
+    expect do
+      FactoryBot.create(:attack, accuracy: nil)
+    end.to raise_error(ActiveRecord::RecordInvalid)
+  end
+  it 'has a power' do
+    expect do
+      FactoryBot.create(:attack, power: nil)
+    end.to raise_error(ActiveRecord::RecordInvalid)
+  end
 end
