@@ -1,5 +1,5 @@
 class Pokemon < ApplicationRecord
-  validates :name, uniqueness: true
+  validates :name, presence: true, uniqueness: true
   validates :height, presence: true
   validates :weight, presence: true
 end
