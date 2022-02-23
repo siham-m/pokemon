@@ -10,11 +10,11 @@
   </thead>
   <tbody>
     <tr>
-      <% @pokemons.each do |pokemon |%>
-      <th scope="row">1</th>
-      <td><%= pokemon.name%></td>
-      <td><%= pokemon.height%></td>
-      <td><%= pokemon.weight%></td>
+      <% @pokemons.each do |pokemon| %>
+      <th scope="row"><%= pokemon.id %></th>
+      <td><%= pokemon.name %></td>
+      <td><%= pokemon.height %> cm</td>
+      <td><%= pokemon.weight %> kg</td>
       <% end %>
     </tr>
   </tbody>
