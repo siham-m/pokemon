@@ -1,0 +1,10 @@
+<h1>Search</h1>
+<% if request.post? %>
+  <p class="alert alert-danger">Pokemon introuvable</p>
+<% end %>
+
+<%= form_with method: :post do |f| %>
+  <%= f.text_field :name, value: params[:name] %>
+  <button>Send</button>
+<% end %>
+

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'pokemons#index'
   resources :pokemons do
     collection do
-      get :search
+      match :search, via: [:get, :post]
     end
   end
   resources :attacks
