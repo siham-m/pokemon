@@ -28,4 +28,14 @@ RSpec.describe Attack, type: :model do
       FactoryBot.create(:attack, power: nil)
     end.to raise_error(ActiveRecord::RecordInvalid)
   end
+  it 'has a numeric power' do
+    expect do
+      FactoryBot.create(:attack, power: "test")
+    end.to raise_error(ActiveRecord::RecordInvalid)
+  end
+  it 'has a numeric accuracy' do
+    expect do
+      FactoryBot.create(:attack, accuracy: "test")
+    end.to raise_error(ActiveRecord::RecordInvalid)
+  end
 end
