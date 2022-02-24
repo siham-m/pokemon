@@ -5,11 +5,13 @@ RSpec.describe Berry, type: :model do
     expect(FactoryBot.build(:berry)).to be_valid
     expect(FactoryBot.create(:berry)).to be_valid
   end
+  
   it 'has a name'do 
     expect do
       FactoryBot.create(:berry, name: nil)
     end.to raise_error(ActiveRecord::RecordInvalid)
   end
+
   it 'has a unique name' do
     expect do
       FactoryBot.create(:berry)
@@ -18,4 +20,5 @@ RSpec.describe Berry, type: :model do
       FactoryBot.create(:berry)
     end.to raise_error(ActiveRecord::RecordInvalid)
   end
+
 end

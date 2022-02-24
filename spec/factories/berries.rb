@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :berry do
-    name { "Razz Berry" }
+    name { Faker::Food.fruits }
   end
 end
