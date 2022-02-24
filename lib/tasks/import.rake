@@ -52,4 +52,17 @@ namespace :import do
       end
     end
   end
+
+  task berries: :environment do
+    response = HTTParty.get('https://pokeapi.co/api/v2/berry?limit=5000')
+    body = JSON.parse(response.body)
+    body["results"].each do |result|
+      if !Berry.exists?(name: result["name"])
+        berry = Berry.create!(
+        name: result["name"]
+      )
+      puts berry.name
+      end
+    end
+  end
 end
