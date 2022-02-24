@@ -12,4 +12,8 @@ class Pokemon < ApplicationRecord
   def max_power
     attacks.maximum(:power)
   end
+
+  def min_power
+    attacks.minimum(:power)
+  end
 end

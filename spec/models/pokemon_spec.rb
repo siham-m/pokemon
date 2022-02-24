@@ -52,4 +52,11 @@ RSpec.describe Pokemon, type: :model do
     pokemon = FactoryBot.create(:pokemon, attack_names: [attack1.name, attack2.name])
     expect(pokemon.max_power).to eq(20)
   end
+
+  it 'has min power' do
+    attack1 = FactoryBot.create(:attack, power: 10)
+    attack2 = FactoryBot.create(:attack, power: 20)
+    pokemon = FactoryBot.create(:pokemon, attack_names: [attack1.name, attack2.name])
+    expect(pokemon.min_power).to eq(10)
+  end
 end
