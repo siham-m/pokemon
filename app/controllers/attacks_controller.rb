@@ -5,5 +5,8 @@ class AttacksController < ApplicationController
 
   def show
     @attack = Attack.find_by(name: params[:id])
+    if @attack.nil?
+      head :not_found
+    end
   end
 end
