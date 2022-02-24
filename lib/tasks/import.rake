@@ -1,3 +1,5 @@
+require 'uri'
+
 namespace :import do
   task pokemons: :environment do
     import = Import.create!(resource: "pokemons")
@@ -17,15 +19,20 @@ namespace :import do
         if picture.nil?
           picture = "http://cdn.onlinewebfonts.com/svg/img_137275.png"
         end
+        response3 = HTTParty.get(body2["species"]["url"])
+        body3 = JSON.parse(response3.body)
+        description = body3["flavor_text_entries"].first["flavor_text"]
         pokemon = Pokemon.create!(
-        name: result["name"],
-        height: body2["height"],
-        weight: body2["weight"],
-        picture: picture,
-        types: body2["types"].map {|x| x["type"]["name"]},
-        attack_names: body2["moves"].map {|x| x["move"]["name"]}
-      )
-      puts pokemon.name
+          name: result["name"],
+          height: body2["height"],
+          weight: body2["weight"],
+          types: body2["types"].map {|x| x["type"]["name"]},
+          description: description,
+          attack_names: body2["moves"].map {|x| x["move"]["name"]}
+        )
+        downloaded_image = URI.open(picture)
+        extension = picture.split('.').last
+        pokemon.photo.attach(io: downloaded_image, filename: "#{pokemon.name}.#{extension}")
       end
     end
     import.touch

@@ -3,6 +3,12 @@ FactoryBot.define do
     name { Faker::Games::Pokemon.name.parameterize }
     height{ 40 }
     weight{ 6 }
-    picture{ "https://youtube.com" }
+    description{"azer"}
+    speed{ 2 }
+    defense{ 2 }
+    attack{ 2 }
+    special_defense{ 2 }
+    special_attack{ 2 }
+    hp{ 2 }
   end
 end

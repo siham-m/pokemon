@@ -33,11 +33,47 @@ RSpec.describe Pokemon, type: :model do
     end.to raise_error(ActiveRecord::RecordInvalid)
   end
 
-  it 'has a picture' do
+  it 'has hp' do
     expect do
-      FactoryBot.create(:pokemon, picture: nil)
+      FactoryBot.create(:pokemon, hp: nil)
     end.to raise_error(ActiveRecord::RecordInvalid)
-  end  
+  end
+
+  it 'has a speed' do
+    expect do
+      FactoryBot.create(:pokemon, speed: nil)
+    end.to raise_error(ActiveRecord::RecordInvalid)
+  end
+
+  it 'has a defense' do
+    expect do
+      FactoryBot.create(:pokemon, defense: nil)
+    end.to raise_error(ActiveRecord::RecordInvalid)
+  end
+
+  it 'has a attack' do
+    expect do
+      FactoryBot.create(:pokemon, attack: nil)
+    end.to raise_error(ActiveRecord::RecordInvalid)
+  end
+
+  it 'has a special_defense' do
+    expect do
+      FactoryBot.create(:pokemon, special_defense: nil)
+    end.to raise_error(ActiveRecord::RecordInvalid)
+  end
+
+  it 'has a special_attack' do
+    expect do
+      FactoryBot.create(:pokemon, special_attack: nil)
+    end.to raise_error(ActiveRecord::RecordInvalid)
+  end
+
+  it 'has a description' do
+    expect do
+      FactoryBot.create(:pokemon, description: nil)
+    end.to raise_error(ActiveRecord::RecordInvalid)
+  end
 
   it 'has attacks' do
     attack1 = FactoryBot.create(:attack)
