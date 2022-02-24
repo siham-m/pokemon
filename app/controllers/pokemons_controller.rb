@@ -9,4 +9,8 @@ class PokemonsController < ApplicationController
       head :not_found
     end
   end
+
+  def search
+    
+  end
 end

@@ -14,10 +14,10 @@ RSpec.describe Berry, type: :model do
 
   it 'has a unique name' do
     expect do
-      FactoryBot.create(:berry)
+      FactoryBot.create(:berry, name:"cerise")
     end.not_to raise_error(ActiveRecord::RecordInvalid)
     expect do
-      FactoryBot.create(:berry)
+      FactoryBot.create(:berry, name:"cerise")
     end.to raise_error(ActiveRecord::RecordInvalid)
   end
 
