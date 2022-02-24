@@ -1,5 +1,13 @@
+<% types = [] %>
+<% Pokemon.all.each do |pokemon| %>
+  <% types << pokemon.types %>
+<% end %>
 
-<div class="card">
+<% types.flatten.uniq.each do |type| %>
+  <%= link_to type.titleize, pokemons_path(type: type), class:"btn btn-primary" %>
+<% end %>
+
+<div class="card mt-3">
   <div class="card-header"><%= @pokemons.count %> Pokemons</div>
   <div class="card-body p-0">
   <table class="table-bordered table-hover table m-0">
@@ -8,6 +16,7 @@
         <th class="p-2">Name</th>
         <th class="p-2">Height</th>
         <th class="p-2">Weight</th>
+        <th class="p-2">Types</th>
         <th class="p-2">Show</th>
       </tr>
     </thead>
@@ -17,6 +26,7 @@
         <td class="p-2"><%= pokemon.name.titleize %></td>
         <td class="p-2"><%= pokemon.height %> cm</td>
         <td class="p-2"><%= pokemon.weight %> kg</td>
+        <td class="p-2"><%= pokemon.types.join(",") %></td>
         <td class="p-2"><%= link_to "show", pokemon_path(pokemon.name), class: "btn btn-secondary btn-sm" %></td>
         </tr>
         <% end %>

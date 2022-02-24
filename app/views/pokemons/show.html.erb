@@ -4,6 +4,7 @@
 <p>Poids du Pokémon : <%= @pokemon.weight %> kg</p>
 <p>Power max : <%= @pokemon.max_power %></p>
 <p>Power min : <%= @pokemon.min_power %></p>
+<p>Types : <%= @pokemon.types.join(",") %></p>
 
 <div class="card">
 <div class="card-header"><%= @pokemon.attacks.count %> Attacks</div>

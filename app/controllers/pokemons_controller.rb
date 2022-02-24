@@ -1,6 +1,9 @@
 class PokemonsController < ApplicationController
   def index
     @pokemons = Pokemon.all.order(:id)
+    if params[:type]
+      @pokemons = Pokemon.where("'#{params[:type]}' = ANY(types)").order(:id)
+    end
   end
 
   def show
