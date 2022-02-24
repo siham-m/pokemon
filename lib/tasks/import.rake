@@ -1,5 +1,6 @@
 namespace :import do
   task pokemons: :environment do
+    import = Import.create!(resource: "pokemons")
     response = HTTParty.get('https://pokeapi.co/api/v2/pokemon?limit=2000')
     body = JSON.parse(response.body)
     body["results"].each do |result|
@@ -26,9 +27,11 @@ namespace :import do
       puts pokemon.name
       end
     end
+    import.touch
   end
 
   task attacks: :environment do
+    import = Import.create!(resource: "attacks")
     response = HTTParty.get('https://pokeapi.co/api/v2/move?limit=1000')
     body = JSON.parse(response.body)
     body["results"].each do |result|
@@ -51,9 +54,11 @@ namespace :import do
       puts attack.name
       end
     end
+    import.touch
   end
 
   task berries: :environment do
+    import = Import.create!(resource: "berries")
     response = HTTParty.get('https://pokeapi.co/api/v2/berry?limit=5000')
     body = JSON.parse(response.body)
     body["results"].each do |result|
@@ -64,5 +69,6 @@ namespace :import do
       puts berry.name
       end
     end
+    import.touch
   end
 end
