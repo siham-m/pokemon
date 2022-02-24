@@ -9,6 +9,6 @@ class PokemonsController < ApplicationController
 
   def import
     response = HTTParty.get('https://pokeapi.co/api/v2/pokemon')
-    puts response.body, response.code, response.message, response.headers.inspect
+    render json: response.body
   end
 end
