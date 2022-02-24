@@ -1,7 +1,10 @@
-<h1>Search</h1>
-
-<%= form_with method: :get do |f| %>
-  <%= f.text_field :name, value: params[:name] %>
-  <button>Send</button>
-<% end %>
-
+<div class="mx-auto w-50">
+  <%= form_with method: :get do |f| %>
+    <div class="form-floating">
+      <%= f.text_field :name, value: params[:name], class: "form-control" %>
+      <%= f.label "Rechercher un pokemon" %>
+      <button class="btn btn-secondary mt-2">Search</button>
+    </div>
+  <% end %>
+</div>
+<link href="/search.css" rel="stylesheet">
