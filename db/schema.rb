@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_24_202411) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_24_205431) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -77,6 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_24_202411) do
     t.integer "special_defense", null: false
     t.integer "special_attack", null: false
     t.integer "speed", null: false
+    t.text "evolves_from"
     t.index ["name"], name: "index_pokemons_on_name"
   end
 

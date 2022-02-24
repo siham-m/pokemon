@@ -22,6 +22,8 @@ namespace :import do
         response3 = HTTParty.get(body2["species"]["url"])
         body3 = JSON.parse(response3.body)
         description = body3["flavor_text_entries"].first["flavor_text"]
+        response4 = HTTParty.get("https://pokeapi.co/api/v2/pokemon-species/#{body2['id']}")
+        body4 = JSON.parse(response4.body)
         pokemon = Pokemon.create!(
           name: result["name"],
           height: body2["height"],
@@ -34,7 +36,8 @@ namespace :import do
           speed: body2["stats"][5]["base_stat"],
           types: body2["types"].map {|x| x["type"]["name"]},
           description: description,
-          attack_names: body2["moves"].map {|x| x["move"]["name"]}
+          attack_names: body2["moves"].map {|x| x["move"]["name"]},
+          evolves_from: body4["evolves_from_species"] ? body4["evolves_from_species"]["name"] : nil,
         )
         downloaded_image = URI.open(picture)
         extension = picture.split('.').last

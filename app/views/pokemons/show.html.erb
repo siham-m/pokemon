@@ -7,8 +7,49 @@
 <p>Types : <%= @pokemon.types.join(",") %></p>
 <p>Description : <%= @pokemon.description %></p>
 
+<% if !@pokemon.evolves_from.nil? %>
+  <% evolves_from = Pokemon.find_by(name: @pokemon.evolves_from) %>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header"><p>Evolves from: <%= evolves_from.name %></p></div>
+      <div class="card-body d-flex">
+        <%= image_tag evolves_from.photo %>
+        <div class="card-body">
+          <p>Taille : <%= evolves_from.height %></p>
+          <p>Poids : <%= evolves_from.weight %></p>
+          <p>Description : <%= evolves_from.description %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 
-<div class="card">
+<% evolution = Pokemon.find_by(evolves_from: @pokemon.name) %>
+<% if evolution %>
+<div class="row mt-3">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">Evolution : <%= evolution.name %></div>
+      <div class="card-body">
+        <%= image_tag evolution.photo, style: 'width: 200px' %>
+      </div>
+    </div>
+  </div>
+  <% evolution2 = Pokemon.find_by(evolves_from: evolution.name) %>
+  <% if evolution2 %>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">Evolution : <%= evolution2.name %></div>
+        <div class="card-body">
+          <%= image_tag evolution2.photo, style: 'width: 200px' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<% end %>
+
+<div class="card mt-3">
 <div class="card-header">Stats</div>
 <div class="card-body p-0">
 <table class="table-bordered table-hover table m-0">
