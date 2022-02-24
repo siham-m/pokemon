@@ -6,7 +6,7 @@ class PokemonsController < ApplicationController
   def show
     @pokemon = Pokemon.find_by(name: params[:id])
     if @pokemon.nil?
-      raise "NOT FOUND"
+      head :not_found
     end
   end
 end
