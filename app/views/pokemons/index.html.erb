@@ -6,16 +6,18 @@
       <th scope="col">Name</th>
       <th scope="col">Height</th>
       <th scope="col">Weight</th>
+      <th scope="col">Show</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
       <% @pokemons.each do |pokemon| %>
+        <tr>
       <th scope="row"><%= pokemon.id %></th>
       <td><%= pokemon.name %></td>
       <td><%= pokemon.height %> cm</td>
       <td><%= pokemon.weight %> kg</td>
+      <td><%= link_to "show", pokemon_path(pokemon.id), class: "btn btn-link" %></td>
+      </tr>
       <% end %>
-    </tr>
   </tbody>
 </table>
