@@ -9,6 +9,6 @@ RSpec.describe BerriesController, type: :controller do
     berry1 = FactoryBot.create(:berry)
     berry2 = FactoryBot.create(:berry)
     get :index
-    expect(assigns(:berries)).to eq([berry1, berry2])
+    expect(assigns(:berries).pluck(:id).sort).to eq([berry1.id, berry2.id])
   end
 end
