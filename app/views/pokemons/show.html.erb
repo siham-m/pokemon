@@ -7,8 +7,39 @@
 <p>Types : <%= @pokemon.types.join(",") %></p>
 <p>Description : <%= @pokemon.description %></p>
 
+
 <div class="card">
-<div class="card-header"><%= @pokemon.attacks.count %> Attacks</div>
+<div class="card-header">Stats</div>
+<div class="card-body p-0">
+<table class="table-bordered table-hover table m-0">
+  <thead class="small bg-light">
+    <tr>
+      <th class="p-2">Hp</th>
+      <th class="p-2">Attack</th>
+      <th class="p-2">Defense</th>
+      <th class="p-2">Special attack</th>
+      <th class="p-2">Special defense</th>
+      <th class="p-2">Speed</th>
+      <th class="p-2">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td class="p-2"><%= @pokemon.hp %></td>
+        <td class="p-2"><%= @pokemon.attack %></td>
+        <td class="p-2"><%= @pokemon.defense %></td>
+        <td class="p-2"><%= @pokemon.special_attack %></td>
+        <td class="p-2"><%= @pokemon.special_defense %></td>
+        <td class="p-2"><%= @pokemon.speed %></td>
+        <td class="p-2"><%= @pokemon.sum %></td>
+      </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+<div class="card mt-3">
+<div class="card-header"><%= @pokemon.attacks.size %> Attacks</div>
 <div class="card-body p-0">
 <table class="table-bordered table-hover table m-0">
   <thead class="small bg-light">

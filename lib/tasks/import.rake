@@ -26,6 +26,12 @@ namespace :import do
           name: result["name"],
           height: body2["height"],
           weight: body2["weight"],
+          hp: body2["stats"][0]["base_stat"],
+          attack: body2["stats"][1]["base_stat"],
+          defense: body2["stats"][2]["base_stat"],
+          special_attack: body2["stats"][3]["base_stat"],
+          special_defense: body2["stats"][4]["base_stat"],
+          speed: body2["stats"][5]["base_stat"],
           types: body2["types"].map {|x| x["type"]["name"]},
           description: description,
           attack_names: body2["moves"].map {|x| x["move"]["name"]}

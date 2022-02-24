@@ -24,4 +24,8 @@ class Pokemon < ApplicationRecord
   def min_power
     attacks.minimum(:power)
   end
+
+  def sum
+    hp + defense + attack + special_attack + special_defense + speed
+  end
 end

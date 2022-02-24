@@ -95,4 +95,9 @@ RSpec.describe Pokemon, type: :model do
     pokemon = FactoryBot.create(:pokemon, attack_names: [attack1.name, attack2.name])
     expect(pokemon.min_power).to eq(10)
   end
+
+  it 'has sum of stats' do
+    pokemon = FactoryBot.create(:pokemon, hp: 2, defense: 3, attack: 4, special_attack: 3, special_defense: 5, speed: 4)
+    expect(pokemon.sum).to eq(21)
+  end
 end
