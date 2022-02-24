@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_24_120753) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "picture", null: false
-    t.text "attack_ids", default: [], array: true
+    t.text "attack_names", default: [], array: true
     t.index ["name"], name: "index_pokemons_on_name"
   end
 

@@ -2,3 +2,28 @@
 <h1><%= @pokemon.name %></h1>
 <p>Taille du Pokémon : <%= @pokemon.height %> cm</p>
 <p>Poids du Pokémon : <%= @pokemon.weight %> kg</p>
+<p>Power max : <%= @pokemon.max_power %></p>
+
+<div class="card">
+<div class="card-header">Attacks</div>
+<div class="card-body p-0">
+<table class="table-bordered table-hover table m-0">
+  <thead class="small bg-light">
+    <tr>
+      <th class="p-2">Name</th>
+      <th class="p-2">Accuracy</th>
+      <th class="p-2">Power</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pokemon.attacks.order(power: :desc).each do |attack| %>
+      <tr>
+        <td class="p-2"><%= attack.name.titleize %></td>
+        <td class="p-2"><%= attack.accuracy %></td>
+        <td class="p-2"><%= attack.power %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>

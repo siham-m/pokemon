@@ -20,7 +20,8 @@ namespace :import do
         name: result["name"],
         height: body2["height"],
         weight: body2["weight"],
-        picture: picture
+        picture: picture,
+        attack_names: body2["moves"].map {|x| x["move"]["name"]}
       )
       puts pokemon.name
       end
