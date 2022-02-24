@@ -11,7 +11,7 @@ class PokemonsController < ApplicationController
   end
 
   def search
-    if params[:name]
+    if params[:name].present?
       pokemon = Pokemon.find_by(name: params[:name])
       if pokemon
         redirect_to pokemon_path(pokemon.name)
