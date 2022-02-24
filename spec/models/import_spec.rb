@@ -6,8 +6,20 @@ RSpec.describe Import, type: :model do
     expect(FactoryBot.create(:import)).to be_valid
   end
 
+  it 'has a resource' do
+    expect do
+      FactoryBot.create(:import, resource: nil)
+    end.to raise_error(ActiveRecord::RecordInvalid)
+  end  
+
+  it 'has a valid resource' do
+    expect do
+      FactoryBot.create(:import, resource: "test")
+    end.to raise_error(ActiveRecord::RecordInvalid)
+  end 
+
   it 'has a duration' do 
-    duration1 = FactoryBot.create(:resource, duration: 10)
-    expect(import.duration).to eq(10)
+    import = FactoryBot.create(:import)
+    expect(import.duration).not_to eq(nil)
   end
 end

@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :import do
-    resource{ "animal" }
+    resource { "pokemons" }
   end
 end
