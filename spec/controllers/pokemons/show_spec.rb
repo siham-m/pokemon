@@ -6,6 +6,7 @@ RSpec.describe PokemonsController, type: :controller do
       get :show, params: {id: pokemon.name}
       expect(response).to render_template(:show)
   end
+
   it 'assigns pokemon' do
     pokemon = FactoryBot.create(:pokemon)
     get :show, params: {id: pokemon.name}

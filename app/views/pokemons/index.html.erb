@@ -1,23 +1,26 @@
-<h1>Pokemons#index</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Height</th>
-      <th scope="col">Weight</th>
-      <th scope="col">Show</th>
-    </tr>
-  </thead>
-  <tbody>
-      <% @pokemons.each do |pokemon| %>
-        <tr>
-      <th scope="row"><%= pokemon.id %></th>
-      <td><%= pokemon.name %></td>
-      <td><%= pokemon.height %> cm</td>
-      <td><%= pokemon.weight %> kg</td>
-      <td><%= link_to "show", pokemon_path(pokemon.name), class: "btn btn-link" %></td>
+
+<div class="card">
+  <div class="card-header">Pokemon</div>
+  <div class="card-body p-0">
+  <table class="table-bordered table-hover table m-0">
+    <thead class="small bg-light">
+      <tr>
+        <th class="p-2">Name</th>
+        <th class="p-2">Height</th>
+        <th class="p-2">Weight</th>
+        <th class="p-2">Show</th>
       </tr>
-      <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+        <% @pokemons.each do |pokemon| %>
+          <tr>
+        <td class="p-2"><%= pokemon.name.titleize %></td>
+        <td class="p-2"><%= pokemon.height %> cm</td>
+        <td class="p-2"><%= pokemon.weight %> kg</td>
+        <td class="p-2"><%= link_to "show", pokemon_path(pokemon.name), class: "btn btn-secondary btn-sm" %></td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>

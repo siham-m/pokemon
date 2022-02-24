@@ -26,4 +26,29 @@ namespace :import do
       end
     end
   end
+
+  task attacks: :environment do
+    response = HTTParty.get('https://pokeapi.co/api/v2/move?limit=1000')
+    body = JSON.parse(response.body)
+    body["results"].each do |result|
+      response2 = HTTParty.get(result["url"])
+      body2 = JSON.parse(response2.body)
+      if !Attack.exists?(name: result["name"])
+        power = body2["power"]
+        accuracy = body2["accuracy"]
+        if power.nil?
+          power = 0
+        end
+        if accuracy.nil?
+          accuracy = 0
+        end
+        attack = Attack.create!(
+        name: result["name"],
+        accuracy: accuracy,
+        power: power
+      )
+      puts attack.name
+      end
+    end
+  end
 end

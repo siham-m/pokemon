@@ -12,10 +12,10 @@ RSpec.describe Attack, type: :model do
   end
   it 'has a unique name' do
     expect do
-      FactoryBot.create(:attack)
+      FactoryBot.create(:attack, name: "exemple")
     end.not_to raise_error
     expect do
-      FactoryBot.create(:attack)
+      FactoryBot.create(:attack, name: "exemple")
     end.to raise_error(ActiveRecord::RecordInvalid)
   end
   it 'has an accuracy' do
