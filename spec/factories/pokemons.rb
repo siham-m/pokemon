@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :pokemon do
-    name { 'Pikachu' }
+    name { Faker::Games::Pokemon.name }
     height{ 40 }
     weight{ 6 }
   end

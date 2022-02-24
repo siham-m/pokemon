@@ -13,10 +13,10 @@ RSpec.describe Pokemon, type: :model do
   end
   it 'has a unique name' do
     expect do
-      FactoryBot.create(:pokemon)
+      FactoryBot.create(:pokemon, name: "Pikachu")
     end.not_to raise_error
     expect do
-      FactoryBot.create(:pokemon)
+      FactoryBot.create(:pokemon, name: "Pikachu")
     end.to raise_error(ActiveRecord::RecordInvalid)
   end
   it 'has a weight' do
