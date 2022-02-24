@@ -11,6 +11,7 @@ RSpec.describe Pokemon, type: :model do
       FactoryBot.create(:pokemon, name: nil)
     end.to raise_error(ActiveRecord::RecordInvalid)
   end
+
   it 'has a unique name' do
     expect do
       FactoryBot.create(:pokemon, name: "Pikachu")
@@ -19,14 +20,22 @@ RSpec.describe Pokemon, type: :model do
       FactoryBot.create(:pokemon, name: "Pikachu")
     end.to raise_error(ActiveRecord::RecordInvalid)
   end
+
   it 'has a weight' do
     expect do
       FactoryBot.create(:pokemon, weight: nil)
     end.to raise_error(ActiveRecord::RecordInvalid)
   end
+
   it 'has a height' do
     expect do
       FactoryBot.create(:pokemon, height: nil)
     end.to raise_error(ActiveRecord::RecordInvalid)
   end
+
+  it 'has a picture' do
+    expect do
+      FactoryBot.create(:pokemon, picture: nil)
+    end.to raise_error(ActiveRecord::RecordInvalid)
+  end  
 end

@@ -16,7 +16,7 @@
       <td><%= pokemon.name %></td>
       <td><%= pokemon.height %> cm</td>
       <td><%= pokemon.weight %> kg</td>
-      <td><%= link_to "show", pokemon_path(pokemon.id), class: "btn btn-link" %></td>
+      <td><%= link_to "show", pokemon_path(pokemon.name), class: "btn btn-link" %></td>
       </tr>
       <% end %>
   </tbody>
