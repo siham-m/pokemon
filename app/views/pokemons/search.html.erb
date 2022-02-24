@@ -1,3 +1,7 @@
+<% if params[:name] %>
+  <p class="alert alert-danger w-50 mx-auto">Pokemon introuvable</p>
+<% end %>
+
 <div class="mx-auto w-50">
   <%= form_with method: :get do |f| %>
     <div class="form-floating">

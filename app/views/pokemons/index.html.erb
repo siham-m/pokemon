@@ -1,11 +1,14 @@
 <% types = [] %>
 <% Pokemon.all.each do |pokemon| %>
   <% types << pokemon.types %>
-<% end %>
+<% end %> 
+
+<%= link_to "All", pokemons_path, class:"btn btn-primary" %>
 
 <% types.flatten.uniq.each do |type| %>
-  <%= link_to type.titleize, pokemons_path(type: type), class:"btn btn-primary" %>
+  <%= link_to type.titleize, pokemons_path(type: type), class:"btn btn-outline-primary" %>
 <% end %>
+
 
 <div class="card mt-3">
   <div class="card-header"><%= @pokemons.count %> Pokemons</div>
