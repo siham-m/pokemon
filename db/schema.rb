@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_24_110101) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_24_120753) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_24_110101) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "picture", null: false
+    t.text "attack_ids", default: [], array: true
     t.index ["name"], name: "index_pokemons_on_name"
   end
 
