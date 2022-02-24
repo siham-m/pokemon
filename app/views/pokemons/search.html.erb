@@ -1,6 +1,6 @@
 <h1>Search</h1>
 
-<%= form_with method: :post do |f| %>
+<%= form_with method: :get do |f| %>
   <%= f.text_field :name, value: params[:name] %>
   <button>Send</button>
 <% end %>
