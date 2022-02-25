@@ -1,5 +1,7 @@
 <%= @cards.size %>
 
+<%= will_paginate @cards %>
+
 <% @cards.each do |card| %>
   <%= image_tag card.photo, style: "width: 200px" %>
 <% end %>

@@ -18,6 +18,7 @@
           <p>Taille : <%= evolves_from.height %></p>
           <p>Poids : <%= evolves_from.weight %></p>
           <p>Description : <%= evolves_from.description %></p>
+          <%= link_to "Voir pokemon", pokemon_path(evolves_from.name), class: "btn btn-primary" %>
         </div>
       </div>
     </div>
@@ -40,6 +41,7 @@
             <p>Taille : <%= evolution.height %></p>
             <p>Poids : <%= evolution.weight %></p>
             <p>Description : <%= evolution.description %></p>
+            <%= link_to "Voir evolution", pokemon_path(evolution.name), class: "btn btn-primary" %>
         </div>
         </div>
       </div>
