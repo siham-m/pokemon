@@ -28,6 +28,7 @@ namespace :import do
           name: result["name"],
           height: body2["height"],
           weight: body2["weight"],
+          french_name: body4["names"].select {|x| x["language"]["name"] == "fr"}["name"],
           hp: body2["stats"][0]["base_stat"],
           attack: body2["stats"][1]["base_stat"],
           defense: body2["stats"][2]["base_stat"],

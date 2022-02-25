@@ -9,9 +9,10 @@ class Pokemon < ApplicationRecord
   validates :special_attack, presence: true, numericality: true
   validates :defense, presence: true, numericality: true
   validates :attack, presence: true, numericality: true
+  validates :french_name, presence: true, uniqueness: true
 
   has_one_attached :photo
-  has_many :cards
+  has_many :cards, dependent: :destroy
 
   def attacks
     #Retourne les attaques qui sont dans la liste des nom d'attaques

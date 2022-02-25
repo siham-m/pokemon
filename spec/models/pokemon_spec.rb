@@ -21,6 +21,21 @@ RSpec.describe Pokemon, type: :model do
     end.to raise_error(ActiveRecord::RecordInvalid)
   end
 
+  it 'has a french name' do
+    expect do
+      FactoryBot.create(:pokemon, french_name: nil)
+    end.to raise_error(ActiveRecord::RecordInvalid)
+  end
+
+  it 'has a unique french name' do
+    expect do
+      FactoryBot.create(:pokemon, french_name: "said")
+    end.not_to raise_error
+    expect do
+      FactoryBot.create(:pokemon, french_name: "said")
+    end.to raise_error(ActiveRecord::RecordInvalid)
+  end
+
   it 'has a weight' do
     expect do
       FactoryBot.create(:pokemon, weight: nil)

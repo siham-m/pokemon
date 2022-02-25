@@ -10,5 +10,6 @@ FactoryBot.define do
     special_defense{ 2 }
     special_attack{ 2 }
     hp{ 2 }
+    french_name { Faker::Games::Pokemon.name.parameterize }
   end
 end
