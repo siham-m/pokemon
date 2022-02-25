@@ -1,4 +1,5 @@
 require 'uri'
+require_relative '../pokeapi'
 
 namespace :import do
   task pokemons: :environment do
