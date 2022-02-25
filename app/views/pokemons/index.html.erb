@@ -23,7 +23,13 @@
         <th class="p-2">Height</th>
         <th class="p-2">Weight</th>
         <th class="p-2">Types</th>
-        <th class="p-2">Attacks</th>
+        <th class="p-2">Nombre Attacks</th>
+        <th class="p-2">Hp</th>
+        <th class="p-2">Attack</th>
+        <th class="p-2">Defense</th>
+        <th class="p-2">Special Attack</th>
+        <th class="p-2">Special Defense</th>
+        <th class="p-2">Speed</th>
         <th class="p-2">Show</th>
       </tr>
     </thead>
@@ -36,6 +42,12 @@
             <td class="p-2 align-middle"><%= pokemon.weight %> kg</td>
             <td class="p-2 align-middle"><%= pokemon.types.map {|type| type.titleize}.join(", ") %></td>
             <td class="p-2 align-middle"><%= pokemon.attack_names.size %></td>
+            <td class="p-2 align-middle"><%= pokemon.hp %></td>
+            <td class="p-2 align-middle"><%= pokemon.attack %></td>
+            <td class="p-2 align-middle"><%= pokemon.defense %></td>
+            <td class="p-2 align-middle"><%= pokemon.special_attack %></td>
+            <td class="p-2 align-middle"><%= pokemon.special_defense %></td>
+            <td class="p-2 align-middle"><%= pokemon.speed %></td>
             <td class="p-2 align-middle"><%= link_to "show", pokemon_path(pokemon.name), class: "btn btn-secondary btn-sm" %></td>
         </tr>
         <% end %>

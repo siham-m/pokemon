@@ -31,11 +31,11 @@ class PokemonsController < ApplicationController
   private
 
   def generate_csv
-    headers = ['ID', 'Name', 'Weight', 'Height', 'Types']
+    headers = ['ID', 'Name', 'Weight', 'Height', 'Types', 'Hp', 'Attack', 'Defense', 'Special Attack', 'Special Defense', 'Speed']
     CSV.generate do |csv|
       csv << headers
       @pokemons.each do |pokemon|
-        csv << [pokemon.id, pokemon.name.titleize, pokemon.weight, pokemon.height, pokemon.types.map { |type| type.titleize }.join(', ')]
+        csv << [pokemon.id, pokemon.name.titleize, pokemon.weight, pokemon.height, pokemon.types.map { |type| type.titleize }.join(', '),pokemon.hp, pokemon.attack, pokemon.special_attack, pokemon.special_defense, pokemon.speed]
       end
     end
   end
