@@ -1,6 +1,9 @@
 <%= image_tag @pokemon.photo %>
-<h1><%= @pokemon.name %></h1>
-<h2><%= @pokemon.french_name %></h2>
+<% if cookies[:locale] == "fr" %>
+  <h2><%= @pokemon.french_name %></h2>
+<% else %>
+  <h1><%= @pokemon.name %></h1>
+<% end %>
 <p>Taille du Pokémon : <%= @pokemon.height %> cm</p>
 <p>Poids du Pokémon : <%= @pokemon.weight %> kg</p>
 <p>Power max : <%= @pokemon.max_power %></p>
@@ -27,7 +30,7 @@
 <% end %>
 
 <% @pokemon.cards.each do |card| %> 
-  <%= image_tag card.photo, style: 'width: 200px' %>
+  <%= image_tag card.photo, style: 'width: 200px', class: "mt-3" %>
 <% end %>
 
 <% evolution = Pokemon.find_by(evolves_from: @pokemon.name) %>
@@ -66,7 +69,7 @@
   </div>
 <% end %>
 
-<canvas id="myChart" class="mt-3"></canvas>
+<canvas id="myChart" class="mt-5"></canvas>
 <script>
   const ctx = document.getElementById('myChart').getContext('2d');
   const myChart = new Chart(ctx, {

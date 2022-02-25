@@ -58,3 +58,23 @@
   </table>
   </div>
 </div>
+
+
+  <div class="row mt-3">
+  <% @pokemons.each do |pokemon| %>
+    <div class="col-md-3">
+      <div class="card mt-3">
+        <div class="card-header">
+          <% if cookies[:locale] == "fr" %>
+            <strong><%= pokemon.french_name %></strong>
+          <% else %>
+            <strong><%= pokemon.name.titleize %></strong>
+          <% end %>
+        </div>
+        <div class="card-body">
+          <%= image_tag pokemon.photo, class: 'w-25 d-block mx-auto' %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>

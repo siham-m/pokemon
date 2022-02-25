@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :berries
   resources :imports
   resources :cards
+
+  get "locale", to: "application#set_locale", as: :set_locale
 end
