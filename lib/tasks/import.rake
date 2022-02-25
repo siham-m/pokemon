@@ -24,11 +24,12 @@ namespace :import do
         description = body3["flavor_text_entries"].first["flavor_text"]
         response4 = HTTParty.get("https://pokeapi.co/api/v2/pokemon-species/#{body2['id']}")
         body4 = JSON.parse(response4.body)
+        french = body4['names'].detect { |x| x['language']['name'] == 'fr' }
         pokemon = Pokemon.create!(
           name: result["name"],
           height: body2["height"],
           weight: body2["weight"],
-          french_name: body4["names"].select {|x| x["language"]["name"] == "fr"}["name"],
+          french_name: french['name'],
           hp: body2["stats"][0]["base_stat"],
           attack: body2["stats"][1]["base_stat"],
           defense: body2["stats"][2]["base_stat"],
