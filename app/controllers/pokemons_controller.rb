@@ -35,7 +35,7 @@ class PokemonsController < ApplicationController
     CSV.generate do |csv|
       csv << headers
       @pokemons.each do |pokemon|
-        csv << [pokemon.id, pokemon.name.titleize, pokemon.weight, pokemon.height, pokemon.types.map { |type| type.titleize }.join(', '),pokemon.hp, pokemon.attack, pokemon.special_attack, pokemon.special_defense, pokemon.speed]
+        csv << [pokemon.id, pokemon.name.titleize, pokemon.weight, pokemon.height, pokemon.types.map { |type| type.titleize }.join(', '), pokemon.hp, pokemon.attack, pokemon.defense, pokemon.special_attack, pokemon.special_defense, pokemon.speed]
       end
     end
   end
