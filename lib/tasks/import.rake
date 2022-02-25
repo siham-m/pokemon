@@ -3,8 +3,7 @@ require 'uri'
 namespace :import do
   task pokemons: :environment do
     import = Import.create!(resource: "pokemons")
-    response = HTTParty.get('https://pokeapi.co/api/v2/pokemon?limit=2000')
-    body = JSON.parse(response.body)
+    body = PokeAPI.pokemons
     body["results"].each do |result|
       response2 = HTTParty.get(result["url"])
       body2 = JSON.parse(response2.body)
