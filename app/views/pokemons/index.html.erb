@@ -11,6 +11,7 @@
 
 <%= link_to "Export", pokemons_path(format: "csv"), class:"btn btn-dark" %>
 
+<%= will_paginate @pokemons %>
 
 <div class="card mt-3">
   <div class="card-header"><%= @pokemons.size %> Pokemons</div>

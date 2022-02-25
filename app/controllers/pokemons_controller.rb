@@ -5,7 +5,9 @@ class PokemonsController < ApplicationController
       @pokemons = Pokemon.where("'#{params[:type]}' = ANY(types)").order(:id)
     end
     respond_to do |format|
-      format.html
+      format.html do
+        @pokemons = @pokemons.paginate(page: params[:page], per_page: 100)
+      end
       format.csv do
         send_data generate_csv, filename: "pokemons.csv"
       end
