@@ -6,7 +6,7 @@ class PokemonsController < ApplicationController
     end
     respond_to do |format|
       format.html do
-        @pokemons = @pokemons.paginate(page: params[:page], per_page: 100)
+        @pokemons = @pokemons.paginate(page: params[:page], per_page: 50)
       end
       format.csv do
         send_data generate_csv, filename: "pokemons.csv"
