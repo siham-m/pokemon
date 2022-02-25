@@ -1,1 +1,5 @@
-aze
+<%= @cards.size %>
+
+<% @cards.each do |card| %>
+  <%= image_tag card.photo %>
+<% end %>

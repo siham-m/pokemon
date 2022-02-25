@@ -11,6 +11,7 @@ class Pokemon < ApplicationRecord
   validates :attack, presence: true, numericality: true
 
   has_one_attached :photo
+  has_many :cards
 
   def attacks
     #Retourne les attaques qui sont dans la liste des nom d'attaques

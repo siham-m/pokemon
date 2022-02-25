@@ -24,6 +24,10 @@
   </div>
 <% end %>
 
+<% @pokemon.cards.each do |card| %> 
+  <%= image_tag card.photo, style: 'width: 200px' %>
+<% end %>
+
 <% evolution = Pokemon.find_by(evolves_from: @pokemon.name) %>
 <% if evolution %>
   <div class="row mt-3">

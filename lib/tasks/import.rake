@@ -88,4 +88,21 @@ namespace :import do
     end
     import.touch
   end
+
+  task cards: :environment do
+    import = Import.create!(resource: "cards")
+    Pokemon.all.find_each do |pokemon|
+      response = HTTParty.get("https://api.pokemontcg.io/v2/cards?q=name:#{pokemon.name}")
+      body = JSON.parse(response.body)
+      body['data'].each do |data|
+        if !Card.exists?(name: data['id'])
+          card = Card.create(name: data['id'], pokemon_id: pokemon.id)
+          downloaded_image = URI.open(data['images']['large'])
+          extension = data['images']['large'].split('.').last
+          card.photo.attach(io: downloaded_image, filename: "#{card.name}.#{extension}")
+        end
+      end
+    end
+    import.touch
+  end
 end
