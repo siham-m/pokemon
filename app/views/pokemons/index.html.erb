@@ -21,6 +21,7 @@
       <tr>
         <th class="p-2" style="width: 15%"></th>
         <th class="p-2">Name</th>
+        <th class="p-2">French name</th>
         <th class="p-2">Height</th>
         <th class="p-2">Weight</th>
         <th class="p-2">Types</th>
@@ -39,6 +40,7 @@
           <tr>
             <td class="p-2 align-middle"><%= image_tag pokemon.photo, class: 'w-25 d-block mx-auto' %></td>
             <td class="p-2 align-middle"><%= pokemon.name.titleize %></td>
+            <td class="p-2 align-middle"><%= pokemon.french_name.titleize %></td>
             <td class="p-2 align-middle"><%= pokemon.height %> cm</td>
             <td class="p-2 align-middle"><%= pokemon.weight %> kg</td>
             <td class="p-2 align-middle"><%= pokemon.types.map {|type| type.titleize}.join(", ") %></td>
