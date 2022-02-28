@@ -36,4 +36,19 @@ RSpec.describe User, type: :model do
       end.to raise_error(ActiveRecord::RecordInvalid)
     end
 
+    it 'has a token' do
+      expect do
+        FactoryBot.create(:user, token: nil)
+      end.to raise_error(ActiveRecord::RecordInvalid)
+    end
+
+    it 'has a unique token' do
+      expect do
+        FactoryBot.create(:user, token: "ABC")
+      end.not_to raise_error
+      expect do
+        FactoryBot.create(:user, token: "ABC")
+      end.to raise_error(ActiveRecord::RecordInvalid)
+    end
+
 end
