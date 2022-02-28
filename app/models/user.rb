@@ -3,9 +3,9 @@ class User < ApplicationRecord
   validates :password, presence: true, uniqueness: true
   validates :token, presence: true, uniqueness: true
 
-  before_create :set_token
+  before_validation :set_token
 
   def set_token
-    self.token = "ABC"
+    self.token = SecureRandom.hex
   end
 end

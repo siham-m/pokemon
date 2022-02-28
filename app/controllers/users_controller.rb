@@ -4,9 +4,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    params_user = params.require(:user).permit(:email, :password, :token)
-    @user = User.create(params_user)
-    if @user.save
+    params_user = params.require(:user).permit(:email, :password)
+    @user = User.new(params_user)
+    if @user.save!
       redirect_to root_path
     end
   end
