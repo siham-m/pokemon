@@ -1,4 +1,6 @@
 class Api::AttacksController < ApplicationController
+  before_action :authenticate_api
+
   def index
     @attacks = Attack.all
     render json: @attacks

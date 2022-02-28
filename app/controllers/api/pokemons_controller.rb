@@ -1,13 +1,7 @@
 class Api::PokemonsController < ApplicationController
+  before_action :authenticate_api
+
   def index
-    token = request.headers['Authorization']
-    if token.nil?
-      return render json: { error: 'You must have a token' }
-    end
-    user = User.find_by(token: token)
-    if user.nil?
-      return render json: { error: 'Invalid token' }
-    end
     @pokemons = Pokemon.all
     render json: @pokemons
   end
