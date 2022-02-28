@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :imports
   resources :cards
   resources :users
+  resources :sessions
   namespace :api do
     resources :berries
     resources :attacks
