@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :berries
   resources :imports
   resources :cards
+  resources :users
   namespace :api do
     resources :berries
     resources :attacks
