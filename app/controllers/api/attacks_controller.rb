@@ -5,7 +5,7 @@ class Api::AttacksController < ApplicationController
   end
 
   def show
-    @attack = Attack.find(params[:id])
+    @attack = Attack.find_by(name: params[:id])
     render json: @attack
   end
 end

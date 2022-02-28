@@ -5,7 +5,7 @@ class Api::BerriesController < ApplicationController
   end
 
   def show
-    @berry = Berry.find(params[:id])
+    @berry = Berry.find_by(name: params[:id])
     render json: @berry
   end
 end
