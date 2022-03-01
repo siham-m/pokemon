@@ -12,6 +12,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    if current_user.nil?
+      return redirect_to new_session_path
+    end
+    return redirect_to new_session_path if session[:id].nil?
+    @user = User.find(session[:id])
   end
 end

@@ -1,4 +1,10 @@
 class ApplicationController < ActionController::Base
+  helper_method :current_user
+
+  def current_user
+    return nil if session[:id].nil?
+    User.find(session[:id])
+  end
 
   def set_locale
     cookies[:locale] = params[:locale]
