@@ -46,6 +46,9 @@ gem 'httparty', '~> 0.13.7'
 
 gem 'will_paginate', '~> 3.3'
 
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

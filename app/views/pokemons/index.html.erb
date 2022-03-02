@@ -10,6 +10,7 @@
 <% end %>
 
 <%= link_to "Export", pokemons_path(format: "csv"), class:"btn btn-dark" %>
+<%= link_to "Générer PDF", pokemons_path(@pokemons, format: :pdf), class: "btn btn-secondary my-3" %>
 
 <%= will_paginate @pokemons %>
 

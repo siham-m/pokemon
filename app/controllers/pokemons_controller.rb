@@ -11,6 +11,7 @@ class PokemonsController < ApplicationController
       format.csv do
         send_data generate_csv, filename: "pokemons.csv"
       end
+      format.pdf { render template: "pokemons/index", pdf: 'Index' }
     end
   end
 
