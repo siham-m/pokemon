@@ -15,14 +15,14 @@
   <% evolves_from = Pokemon.find_by(name: @pokemon.evolves_from) %>
   <div class="col-md-6">
     <div class="card">
-      <div class="card-header bg-primary"><p>Evolves from: <%= evolves_from.name %></p></div>
+      <div class="card-header bg-primary"><p><%= t("evolves_from") %>: <%= evolves_from.name %></p></div>
       <div class="card-body d-flex">
         <%= image_tag evolves_from.photo %>
         <div class="card-body">
-          <p>Taille : <%= evolves_from.height %></p>
-          <p>Poids : <%= evolves_from.weight %></p>
+          <p><%= t("height") %> : <%= evolves_from.height %></p>
+          <p><%= t("weight") %> : <%= evolves_from.weight %></p>
           <p>Description : <%= evolves_from.description %></p>
-          <%= link_to "Voir pokemon", pokemon_path(evolves_from.name), class: "btn btn-primary" %>
+          <%= link_to "See Pokemon", pokemon_path(evolves_from.name), class: "btn btn-primary" %>
         </div>
       </div>
     </div>
@@ -42,10 +42,10 @@
         <div class="card-body d-flex">
           <%= image_tag evolution.photo, style: 'width: 200px' %>
           <div class="card-body">
-            <p>Taille : <%= evolution.height %></p>
-            <p>Poids : <%= evolution.weight %></p>
+            <p><%= t("height") %> : <%= evolution.height %></p>
+            <p><%= t("weight") %> : <%= evolution.weight %></p>
             <p>Description : <%= evolution.description %></p>
-            <%= link_to "Voir evolution", pokemon_path(evolution.name), class: "btn btn-primary" %>
+            <%= link_to t("see_evolution"), pokemon_path(evolution.name), class: "btn btn-primary" %>
         </div>
         </div>
       </div>
@@ -58,8 +58,8 @@
           <div class="card-body d-flex">
             <%= image_tag evolution2.photo, style: 'width: 200px' %>
             <div class="card-body">
-              <p>Taille : <%= evolution2.height %></p>
-              <p>Poids : <%= evolution2.weight %></p>
+              <p><%= t("height") %> : <%= evolution2.height %></p>
+              <p><%= t("weight") %> : <%= evolution2.weight %></p>
               <p>Description : <%= evolution2.description %></p>
             </div>
           </div>
@@ -116,11 +116,11 @@
   <thead class="small bg-light">
     <tr>
       <th class="p-2">Hp</th>
-      <th class="p-2">Attack</th>
+      <th class="p-2"><%= t("attack") %></th>
       <th class="p-2">Defense</th>
-      <th class="p-2">Special attack</th>
-      <th class="p-2">Special defense</th>
-      <th class="p-2">Speed</th>
+      <th class="p-2"><%= t("special_attack") %></th>
+      <th class="p-2"><%= t("special_defense") %></th>
+      <th class="p-2"><%= t("speed") %></th>
       <th class="p-2">Total</th>
     </tr>
   </thead>
@@ -145,9 +145,9 @@
 <table class="table-bordered table-hover table m-0">
   <thead class="small bg-light">
     <tr>
-      <th class="p-2">Name</th>
-      <th class="p-2">Accuracy</th>
-      <th class="p-2">Power</th>
+      <th class="p-2"><%= t("name") %></th>
+      <th class="p-2"><%= t("accuracy") %></th>
+      <th class="p-2"><%= t("power") %></th>
     </tr>
   </thead>
   <tbody>

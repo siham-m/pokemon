@@ -3,14 +3,14 @@
   <% types << pokemon.types %>
 <% end %> 
 
-<%= link_to "All", pokemons_path, class:"btn btn-primary" %>
+<%= link_to t("all"), pokemons_path, class:"btn btn-primary" %>
 
 <% types.flatten.uniq.each do |type| %>
   <%= link_to type.titleize, pokemons_path(type: type), class:"btn btn-outline-primary" %>
 <% end %>
 
 <%= link_to "Export", pokemons_path(format: "csv"), class:"btn btn-dark" %>
-<%= link_to "Générer PDF", pokemons_path(@pokemons, format: :pdf), class: "btn btn-secondary my-3" %>
+<%= link_to "PDF", pokemons_path(@pokemons, format: :pdf), class: "btn btn-secondary my-3" %>
 
 <%= will_paginate @pokemons %>
 
@@ -21,19 +21,19 @@
     <thead class="small bg-light">
       <tr>
         <th class="p-2" style="width: 15%"></th>
-        <th class="p-2">Name</th>
+        <th class="p-2"><%= t("name") %></th>
         <th class="p-2">French name</th>
-        <th class="p-2">Height</th>
-        <th class="p-2">Weight</th>
+        <th class="p-2"><%= t("height") %></th>
+        <th class="p-2"><%= t("weight") %></th>
         <th class="p-2">Types</th>
         <th class="p-2">Nombre Attacks</th>
         <th class="p-2">Hp</th>
-        <th class="p-2">Attack</th>
+        <th class="p-2"><%= t("attack") %></th>
         <th class="p-2">Defense</th>
-        <th class="p-2">Special Attack</th>
-        <th class="p-2">Special Defense</th>
-        <th class="p-2">Speed</th>
-        <th class="p-2">Show</th>
+        <th class="p-2"><%= t("special_attack") %></th>
+        <th class="p-2"><%= t("special_defense") %></th>
+        <th class="p-2"><%= t("speed") %></th>
+        <th class="p-2"><%= t("show") %></th>
       </tr>
     </thead>
     <tbody>

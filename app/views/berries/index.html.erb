@@ -1,5 +1,5 @@
-<h1>Berries</h1>
-<%= link_to "Export", berries_path(format: "csv"), class:"btn btn-dark" %>
+<h1><%= t("berries") %></h1>
+<%= link_to t("export"), berries_path(format: "csv"), class:"btn btn-dark" %>
 <ul>
   <% @berries.each do |berry| %>
     <li><%= berry.name.titleize %></li>

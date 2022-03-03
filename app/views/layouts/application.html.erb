@@ -22,16 +22,16 @@
           <a class="nav-link" href="<%= pokemons_path %>">Pokemons</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%= attacks_path %>">Attacks</a>
+          <a class="nav-link" href="<%= attacks_path %>"><%= t("attacks") %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%= berries_path %>">Berries</a>
+          <a class="nav-link" href="<%= berries_path %>"><%= t("berries") %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%= cards_path %>">Cards</a>
+          <a class="nav-link" href="<%= cards_path %>"><%= t("cards") %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"><%= cookies[:locale] %></a>
+          <a class="nav-link"><%= I18n.locale %></a>
         </li>
       </ul>
     </div>

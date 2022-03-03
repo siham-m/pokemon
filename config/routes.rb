@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :pokemons do
     collection do
       match :search, via: [:get, :post]
+      match :import, via: [:get, :post]
     end
   end
   resources :attacks
